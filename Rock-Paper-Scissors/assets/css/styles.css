@@ -1,0 +1,97 @@
+body, *{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+body{
+    
+    min-height: 70vh;
+
+}
+h1{
+    padding: 20px;
+    text-align: center;
+    margin: 20% 0;
+    line-height: 52px;
+}
+button{
+    cursor: pointer;
+    padding: 30px 60px;
+    border-radius: 5px;
+    align-self: center;
+    border: 1px solid yellow;
+    background-color: navy;
+    color: yellow;
+}
+
+.container{
+    width: 60%;
+    flex-direction: column;
+    background-color: grey;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    
+
+}
+
+.flex{
+    display: flex;
+    
+}
+.welcome-page{
+    flex-direction: column;
+    /* display: none; */
+    
+}
+
+/* Game Page */
+#game-page{
+    display: none;
+}
+h2{
+    margin: 6% auto;
+    text-align: center;
+}
+#players-turn{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    text-decoration: underline;
+}
+.game-area{
+    justify-content: space-between;
+    width: 500px;
+    flex-wrap: wrap;
+}
+
+.player-name{
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 100%;
+    min-width: 300px;
+    align-items: center;
+    
+}
+
+.player-one-area,
+.player-two-area{
+    width: 200px;
+    background-color: navy;
+    height: 200px;
+    flex-direction: row;
+    color: yellow;
+    text-align: center;
+    margin-bottom: 4%;
+}
+.game-area p{
+    font-size: 20px;
+    align-self: center;
+}
+.active {
+    box-shadow: .2px 6px 18px 3px rgba(0,0,0,0.75);
+}

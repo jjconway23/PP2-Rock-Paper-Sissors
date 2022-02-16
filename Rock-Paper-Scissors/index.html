@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body class="flex">
+    <div class="container flex">
+        <div class="welcome-page flex">
+            <h1>Welcome! <br> Hit the <strong>Play Button</strong> to Begin!</h1>
+            <button id="welcome-button">Start Game !</button>
+        </div>
+        
+        <div id="game-page">
+            <h2>Rock Paper Scissors</h2>
+            <p id="players-turn">Player Ones Turn</p>
+            <div class="player-name flex">
+                <h3>Player 1 Score: <span id="player-one-scoreboard">0</span></h3>
+                <h3>Player 2 Score: <span d="player-two-scoreboard">0</span></h3>
+            </div>  
+            <div class="game-area flex">
+                <div class= "player-one-area active"></div>
+                <p>vs</p>
+                <div class="player-two-area"></div>
+                <button id="player-one-roll">Player 1 Roll</button>
+                <button id="player-two-roll">Player 2 Roll</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="assets/javascript/script.js"></script>
+</body>
+</html>
