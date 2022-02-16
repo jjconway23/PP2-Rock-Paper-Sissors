@@ -95,3 +95,19 @@ h2{
 .active {
     box-shadow: .2px 6px 18px 3px rgba(0,0,0,0.75);
 }
+
+/* Winners Page */
+#winners-page{
+    flex-direction: column;
+    display: none;
+}
+#winners-page h2{
+    margin: 40% auto 6%;
+    text-align: center;
+}
+
+#winners-page span{
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 10%;
+}

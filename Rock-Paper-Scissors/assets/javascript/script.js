@@ -3,18 +3,26 @@ let playerTwoScore = 0;
 let playerOneTurn = true;
 const choices = ["Rock", "Paper", "Scissors"];
 
-let randomChoice = choices[Math.floor(Math.random() * choices.length)];
+// let randomChoice = choices[Math.floor(Math.random() * choices.length)]; // Don't think im no longer using this .
 
-let welcomeBtn = document.getElementById("welcome-button");
+// Dom Elements
+// page selectors
 let welcomePage = document.querySelector(".welcome-page");
+let winnersPage = document.getElementById("winners-page");
 let gamePage = document.getElementById("game-page");
+// interactive selctors
 let playersTurn = document.getElementById("players-turn");
 let playerOneScoreboard = document.getElementById("player-one-scoreboard");
 let playerTwoScoreboard = document.getElementById("player-two-scoreboard");
 let playerOneChoice = document.querySelector(".player-one-area");
 let playerTwoChoice = document.querySelector(".player-two-area");
+let winningMessage = document.getElementById("winning-player");
+//button selectors
 let playerOneButton = document.getElementById("player-one-roll");
 let playerTwoButton = document.getElementById("player-two-roll");
+let welcomeBtn = document.getElementById("welcome-button");
+let playAgainBtn = document.getElementById("play-again");
+
 //Event Listeners
 
 // switches to game screen
@@ -27,6 +35,7 @@ function startGamePage(){
 //Player Button Click listeners
 playerOneButton.addEventListener("click", playerOneRoll );
 playerTwoButton.addEventListener("click", playerTwoRoll );
+playAgainBtn.addEventListener("click", startGameAgain )
 
 // Player One Function
 function playerOneRoll(){
@@ -37,8 +46,8 @@ function playerOneRoll(){
     playerOneChoice.classList.remove("active");
     playerTwoChoice.classList.add("active");
     playerOneTurn = false;
-    }  
-    
+    } 
+    firstToFive()
 }
 
 // Player Two Function
@@ -53,8 +62,7 @@ function playerTwoRoll(){
     }   
         roundWinner();
         playerOneTurn = true;
-
-   
+        firstToFive()
 }
 
 
@@ -62,7 +70,6 @@ function playerTwoRoll(){
 function randomInt(limit){
     return Math.floor(Math.random() * limit);
 }
-
 function random(choices){
     var index = randomInt(choices.length);
     return choices[index];
@@ -122,15 +129,38 @@ function roundWinner(){
     }else  (playerOneChoice.textContent === playerTwoChoice.textContent) 
             playerOneRoll()
     
-    if(playerOneScore === 5){
-        gameWinner()
-        // console.log("Player One has won!")
-    }else if (playerTwoScore === 5){
-        gameWinnner()
-        // console.log("Player 2 has won!")
-    }
+    
 }
 
-// function gameWinner(){
-//     checkRockVsScissors(gameWinner)
-// }
+//Function to check who won game first to 5!
+
+function firstToFive () {
+        if (playerOneScore === 5){
+                endGame("Player One")
+        } else if(playerTwoScore === 5){
+                endGame("Player Two")
+        }
+
+}
+// This brings up the winner is screen
+function endGame(winner){
+        winnersPage.style.display = "block";
+        gamePage.style.display = "none"
+        winningMessage.textContent = winner
+
+}
+// this attached to the playAgainBtn. Starts game again and sets everything back to 0
+function startGameAgain(){
+        welcomePage.style.display = "block";
+        winnersPage.style.display = "none";
+        playerOneTurn = true;
+        playersTurn.textContent = "Player One's Turn";
+        playerTwoChoice.classList.remove("active");
+        playerOneChoice.classList.add("active");
+        playerOneScore = 0;
+        playerTwoScore = 0;
+        playerTwoScoreboard.textContent = 0
+        playerOneScoreboard.textContent = 0
+        playerOneChoice.textContent = ""
+        playerTwoChoice.textContent = ""
+}
