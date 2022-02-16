@@ -1,9 +1,9 @@
 let playerOneScore = 0;
 let playerTwoScore = 0;
 let playerOneTurn = true;
-const choices = ["Rock", "Paper", "Scissors"]
+const choices = ["Rock", "Paper", "Scissors"];
 
-let randomChoice = choices[Math.floor(Math.random() * choices.length)]
+let randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
 let welcomeBtn = document.getElementById("welcome-button");
 let welcomePage = document.querySelector(".welcome-page");
@@ -15,7 +15,6 @@ let playerOneChoice = document.querySelector(".player-one-area");
 let playerTwoChoice = document.querySelector(".player-two-area");
 let playerOneButton = document.getElementById("player-one-roll");
 let playerTwoButton = document.getElementById("player-two-roll");
-
 //Event Listeners
 
 // switches to game screen
@@ -37,11 +36,9 @@ function playerOneRoll(){
     playersTurn.textContent = "Player Two's Turn";
     playerOneChoice.classList.remove("active");
     playerTwoChoice.classList.add("active");
-    playerOneTurn = false
-    } else{
-        playerTwoRoll
-    }
-    roundWinner()
+    playerOneTurn = false;
+    }  
+    
 }
 
 // Player Two Function
@@ -52,23 +49,24 @@ function playerTwoRoll(){
     playersTurn.textContent = "Player One's Turn";
     playerTwoChoice.classList.remove("active");
     playerOneChoice.classList.add("active");
-    playerOneTurn = true;
-    } else {
-        playerOneRoll
-    }
-    roundWinner()
+    
+    }   
+        roundWinner();
+        playerOneTurn = true;
+
+   
 }
 
 
 //  function that selects random array item
 function randomInt(limit){
-    return Math.floor(Math.random() * limit)
+    return Math.floor(Math.random() * limit);
 }
 
 function random(choices){
-    var index = randomInt(choices.length)
+    var index = randomInt(choices.length);
     return choices[index];
-}
+};
 
 // function that checks who won round
 
@@ -86,8 +84,8 @@ function roundWinner(){
             playerTwoScoreboard.textContent = playerTwoScore;
             playerOneRoll()
     }else if (playerTwoChoice.textContent === "Rock" && playerOneChoice.textContent === "Paper"){
-            playerTwoScore++
-            playerTwoScoreboard.textContent = playerTwoScore;
+                playerOneScore++;
+                playerOneScoreboard.textContent = playerOneScore;
             playerOneRoll()
     } else if (playerOneChoice.textContent === "Paper" && playerTwoChoice.textContent === "Rock"){
             playerOneScore++;
@@ -133,14 +131,6 @@ function roundWinner(){
     }
 }
 
-function gameWinner(){
-    checkRockVsScissors(gameWinner)
-}
-
-
-function checkRockVsScissors(gameWinner){
-    if(playerOneChoice.textContent === gameWinner && playerTwoChoice.textContent === gameWinner){
-        playerOneScore++
-        playerOneScoreboard.textContent = playerOneScore;
-    }
-}
+// function gameWinner(){
+//     checkRockVsScissors(gameWinner)
+// }
